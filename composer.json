@@ -1,7 +1,7 @@
 {
-	"name": "rywa/silverstripe-foundation-forms",
+	"name": "nirajp/silverstripe-foundation-forms",
 	"type": "silverstripe-module",
-	"description": "Add ZURB Foundation framework forms compatibility to SilverStripe 3",
+	"description": "Add ZURB Foundation framework forms compatibility to SilverStripe 4",
 	"keywords": ["silverstripe", "forms", "zurb foundation", "foundation"],
 	"license": "MIT Open Source License",
 	"authors": [
