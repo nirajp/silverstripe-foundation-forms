@@ -1,5 +1,7 @@
 <?php
 
+use SilverStripe\Forms\OptionsetField;
+
 /**
  * FoundationSwitchField
  * Displays a Foundation Switch/Toggle Field

@@ -1,4 +1,9 @@
 <?php
+
+use SilverStripe\Forms\Form;
+use SilverStripe\SpamProtection\Extension\FormSpamProtectionExtension;
+use SilverStripe\View\Requirements;
+use SilverStripe\ORM\DataExtension;
 /**
  * Performs the FoundationFormTransformation on CommentingController
  * @author Anselm Christophersen <ac@anselm.dk>
@@ -11,7 +16,7 @@ class FoundationCommentingController extends DataExtension {
 		$form->Actions()->bootstrapify();
 		$form->setTemplate('FoundationCommentingControllerForm', 'FoundationForm');
 
-		if ($form->hasExtension('FormSpamProtectionExtension')) {
+		if ($form->hasExtension(FormSpamProtectionExtension::class)) {
 			$form->enableSpamProtection();
 		}
 		Requirements::css(FOUNDATIONFORMS_DIR . '/css/foundationforms.css');

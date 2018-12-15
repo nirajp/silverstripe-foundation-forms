@@ -1,4 +1,6 @@
 <?php
+
+use SilverStripe\ORM\DataExtension;
 /**
  * Performs the FoundationFormTransformation on UserForm
  * @author Ryan Wachtl

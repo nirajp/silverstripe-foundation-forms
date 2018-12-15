@@ -1,5 +1,13 @@
 <?php
 
+use SilverStripe\Core\Injector\Injector;
+use SilverStripe\Forms\CompositeField;
+use SilverStripe\Forms\TabSet;
+use SilverStripe\Forms\Tab;
+use SilverStripe\View\SSViewer;
+use SilverStripe\Core\ClassInfo;
+use SilverStripe\Core\Extension;
+
 class FoundationFieldListExtension extends Extension {
 
 	/**
@@ -15,7 +23,7 @@ class FoundationFieldListExtension extends Extension {
 	public function bootstrapify() {
 		foreach ($this->owner as $f) {
 
-			$sng = Injector::inst()->get($f->class, true, ['dummy', '']);
+			$sng = Injector::inst()->get(get_class($f), true, ['dummy', '']);
 
 			if (isset($this->ignores[$f->getName()])) continue;
 
