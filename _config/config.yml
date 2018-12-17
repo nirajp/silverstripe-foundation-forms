@@ -1,9 +1,5 @@
 ---
 Name: foundationforms
-After:
-  - 'framework/*'
-  - 'cms/*'
-  - 'userforms/*'
 ---
 FieldList:
   extensions:
