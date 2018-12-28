@@ -1,0 +1,9 @@
+mappings:
+  FoundationSwitchField: Foundation\Forms\FoundationSwitchField
+  FoundationForm: Foundation\Forms\FoundationForm
+  FoundationMemberLoginForm: Foundation\Forms\FoundationMemberLoginForm
+  FoundationCommentingController: Foundation\Extensions\FoundationCommentingController
+  FoundationUserFormExtension: Foundation\Extensions\FoundationUserFormExtension
+  FoundationFieldListExtension: Foundation\Extensions\FoundationFieldListExtension
+  FoundationFormPage: Foundation\Pagetypes\FoundationFormPage
+  FoundationFormPage_Controller: Foundation\Pagetypes\FoundationFormPage_Controller

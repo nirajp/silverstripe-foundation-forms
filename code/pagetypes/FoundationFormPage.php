@@ -1,5 +1,8 @@
 <?php
 
+namespace Foundation\Pagetypes;
+
+
 use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\EmailField;
@@ -15,6 +18,15 @@ use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Control\Session;
 use SilverStripe\Control\HTTPRequest;
+use Page;
+use PageController;
+use CheckboxsetField;
+
+
+use Foundation\Forms\FoundationSwitchField;
+use Foundation\Forms\FoundationForm;
+
+
 
 /**
  * FoundationFormPage
@@ -151,9 +163,9 @@ class FoundationFormPage_Controller extends PageController {
 
 		// load submitted data, and clear them from session
 		$session = $this->getRequest()->getSession();
-		if($data = $session->get('FoundationForm' . $this->ID)) {
+		if($data = $session->get(FoundationForm::class . $this->ID)) {
 			$form->loadDataFrom($data);
-			Session::clear('FoundationForm' . $this->ID);
+			Session::clear(FoundationForm::class . $this->ID);
 		}
 		return $form;
 	}
@@ -163,7 +175,7 @@ class FoundationFormPage_Controller extends PageController {
 		if(isset($data['SecurityID'])) {
 			unset($data['SecurityID']);
 		}
-		Session::set('FoundationForm' . $this->ID, $data);
+		Session::set(FoundationForm::class . $this->ID, $data);
 
 		return $this->redirect($this->Link());
 	}

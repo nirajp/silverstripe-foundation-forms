@@ -1,9 +1,16 @@
 <?php
 
+namespace Foundation\Forms;
+
+
 use SilverStripe\Control\Controller;
 use SilverStripe\Security\LoginForm;
 use SilverStripe\View\Requirements;
 use SilverStripe\Security\MemberAuthenticator\MemberLoginForm;
+use Foundation\Forms\FoundationForm;
+
+
+
 /**
  * Builds a form that renders {@link FormField} objects
  * using templates that are compatible with Zurb Foundation.
@@ -22,7 +29,7 @@ class FoundationMemberLoginForm extends MemberLoginForm {
 		parent::__construct($controller, $authenticatorClass, $name, $fields, $actions, $checkCurrentUser);
 		$this->Fields()->bootstrapify();
 		$this->Actions()->bootstrapify();
-		$this->setTemplate("FoundationForm");
+		$this->setTemplate(FoundationForm::class);
 		$this->invokeWithExtensions('updateFoundationMemberLoginForm', $this);
 		Requirements::css(FOUNDATIONFORMS_DIR . '/css/foundationforms.css');
 	}

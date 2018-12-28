@@ -1,6 +1,11 @@
 <?php
 
+namespace Foundation\Forms;
+
+
 use SilverStripe\Forms\OptionsetField;
+
+
 
 /**
  * FoundationSwitchField

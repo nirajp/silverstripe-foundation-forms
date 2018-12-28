@@ -1,23 +1,23 @@
 ---
 Name: foundationforms
 ---
-FieldList:
+SilverStripe\Forms\FieldList:
   extensions:
-    - FoundationFieldListExtension
-Injector:
-  MemberLoginForm:
-    class: FoundationMemberLoginForm
+    - Foundation\Extensions\FoundationFieldListExtension
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\Security\MemberAuthenticator\MemberLoginForm:
+    class: Foundation\Forms\FoundationMemberLoginForm
 ---
 Only:
   moduleexists: userforms
 ---
-UserForm:
+SilverStripe\UserForms\Form\UserForm:
   extensions:
-    - FoundationUserFormExtension
+    - Foundation\Extensions\FoundationUserFormExtension
 ---
 Only:
   moduleexists: comments
 ---
 CommentingController:
   extensions:
-    - FoundationCommentingController
+    - Foundation\Extensions\FoundationCommentingController

@@ -1,7 +1,14 @@
 <?php
 
+namespace Foundation\Forms;
+
+
 use SilverStripe\View\Requirements;
 use SilverStripe\Forms\Form;
+use Foundation\Forms\FoundationForm;
+
+
+
 /**
  * Builds a form that renders {@link FormField} objects
  * using templates that are compatible with Zurb Foundation.
@@ -17,7 +24,7 @@ class FoundationForm extends Form {
 	/**
 	 * @var string The template that will render this form
 	 */
-	protected $template = "FoundationForm";
+	protected $template = FoundationForm::class;
 
 	/**
 	 * Includes the dependency if necessary, applies the Bootstrap templates,
