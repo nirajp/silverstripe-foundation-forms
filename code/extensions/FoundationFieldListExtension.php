@@ -2,7 +2,7 @@
 
 namespace Foundation\Extensions;
 
-
+use ReflectionClass;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\TabSet;
@@ -50,7 +50,8 @@ class FoundationFieldListExtension extends Extension {
 
 			// If the user has customised the holder template already, don't apply the default one.
 			if ($sng->getFieldHolderTemplate() == $f->getFieldHolderTemplate()) {
-				$template = "Foundation{$f->class}_holder";
+				$class = new ReflectionClass($f);
+				$template = "Foundation" . $class->getShortName() . "_holder";
 				if (SSViewer::hasTemplate($template)) {
 					$f->setFieldHolderTemplate($template);
 				}
@@ -63,7 +64,9 @@ class FoundationFieldListExtension extends Extension {
 			// If the user has customised the field template already, don't apply the default one.
 			if ($sng->getTemplate() == $f->getTemplate()) {
 				foreach(array_reverse(ClassInfo::ancestry($f)) as $className) {
-					$bootstrapCandidate = "Foundation{$className}";
+					$parts = explode('\\', $className);
+					$shortName = end($parts);
+					$bootstrapCandidate = "Foundation{$shortName}";
 					$nativeCandidate = $className;
 					if (SSViewer::hasTemplate($bootstrapCandidate)) {
 						$f->setTemplate($bootstrapCandidate);
